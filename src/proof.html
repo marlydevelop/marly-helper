@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Hate Mods</title>
+<style>
+@font-face{font-family:'Unbounded';font-weight:700;src:url(fonts/unbounded-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF}
+@font-face{font-family:'Unbounded';font-weight:700;src:url(fonts/unbounded-cyrillic-700-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+:root{--panel:#0d0f12;--panel2:#15181c;--text:#eceef1;--muted:#868d97;--line:#1c2026;--r:12px}
+:root[data-t="light"]{--panel:#ffffff;--panel2:#ebebe8;--text:#1b1d21;--muted:#6b7078;--line:#d9dad6}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:transparent;overflow:hidden;font-family:Manrope,system-ui,sans-serif;color:var(--text)}
+.win{height:100%;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:calc(var(--r) + 4px);overflow:hidden}
+.hd{height:52px;flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 10px 0 18px;border-bottom:1px solid var(--line);-webkit-app-region:drag;user-select:none}
+.hd h1{margin:0;font:700 .86em/1.2 Unbounded,Manrope,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.x{-webkit-app-region:no-drag;width:34px;height:34px;flex:none;padding:0;display:grid;place-items:center;border-radius:calc(var(--r) - 2px);border:1px solid var(--line);background:none;color:var(--muted);cursor:pointer;transition:background-color .2s ease,color .2s ease}
+.x:hover{background:var(--panel2);color:var(--text)}
+.x svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.im{flex:1;min-height:0;padding:12px}
+.im img{display:block;width:100%;height:100%;object-fit:contain;border-radius:calc(var(--r) - 2px);user-select:none;-webkit-user-drag:none}
+</style></head>
+<body><div class="win"><div class="hd"><h1 id="t">Hate Mods</h1><button class="x" id="x" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<div class="im"><img src="hatemods-proof.jpg" alt="" draggable="false"></div></div>
+<script>
+var q=new URLSearchParams(location.search);
+document.documentElement.setAttribute("data-t",q.get("t")==="light"?"light":"dark");
+if(q.get("title"))document.getElementById("t").textContent=q.get("title");
+document.getElementById("x").addEventListener("click",function(){window.close()});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")window.close()});
+</script></body></html>

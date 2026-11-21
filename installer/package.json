@@ -1,0 +1,39 @@
+{
+  "name": "marly-helper-setup",
+  "version": "0.1.0-beta",
+  "description": "Marly Helper installer",
+  "main": "main.js",
+  "author": "Marly",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.marly.helper.setup",
+    "productName": "Marly Helper Setup",
+    "files": [
+      "main.js",
+      "preload.js",
+      "core.js",
+      "src/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "payload",
+        "to": "payload"
+      }
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "src/icon.ico",
+      "artifactName": "Marly-Helper-Setup-${version}.exe"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "name": "marly-helper",
+  "version": "0.1.0-beta",
+  "description": "Marly Helper: гайды, фишки и инструменты для моддинга GTA 5 RP",
+  "main": "main.js",
+  "author": "Marly",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable",
+    "dist:dir": "electron-builder --win dir",
+    "dist:nsis": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.marly.helper",
+    "productName": "Marly Helper",
+    "files": [
+      "main.js",
+      "preload.js",
+      "preload-bigwin.js",
+      "dds.js",
+      "svg.js",
+      "svgpost.js",
+      "up.js",
+      "rm.js",
+      "ret.js",
+      "core.js",
+      "tc.js",
+      "gs.js",
+      "cw.js",
+      "cwx.js",
+      "ttk.js",
+      "update.js",
+      "rpf.js",
+      "rpfmagic.dat",
+      "rpfenc.bin",
+      "tex.js",
+      "ytd.js",
+      "drawable.js",
+      "rpfhashes.json",
+      "src/**/*",
+      "!node_modules/onnxruntime-node/bin/napi-v6/linux/**",
+      "!node_modules/onnxruntime-node/bin/napi-v6/darwin/**",
+      "!node_modules/onnxruntime-node/bin/napi-v6/win32/arm64/**"
+    ],
+    "extraResources": [
+      {
+        "from": "bin",
+        "to": "bin"
+      }
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "src/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Marly Helper"
+    },
+    "asarUnpack": [
+      "node_modules/onnxruntime-node/bin/napi-v6/win32/x64/**"
+    ]
+  },
+  "dependencies": {
+    "onnxruntime-node": "1.31.1"
+  }
+}

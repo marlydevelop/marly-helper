@@ -1,0 +1,7 @@
+node_modules/
+dist/
+installer/node_modules
+installer/payload
+installer/dist
+build/
+bin/png2svg.exe
